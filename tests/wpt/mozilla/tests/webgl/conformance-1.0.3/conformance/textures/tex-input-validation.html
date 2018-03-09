@@ -115,13 +115,17 @@ function testCopyTexImage2D(testCase)
       " target: " + enumToString(testCase.target) +
       " border: " + testCase.border;
 
+    debug("ping")
     gl.renderbufferStorage(gl.RENDERBUFFER, testCase.colorBufferFormat, width, height);
     wtu.glErrorShouldBe(gl, gl.NO_ERROR);
+    debug("pong")
     shouldBe("gl.checkFramebufferStatus(gl.FRAMEBUFFER)", "gl.FRAMEBUFFER_COMPLETE");
 
+    debug("copyteximage2d");
     gl.copyTexImage2D(testCase.target, level, testCase.internalFormat, x, y, width, height, testCase.border);
     error = testCase.expectedError;
     wtu.glErrorShouldBe(gl, error, msg);
+    debug("copyteximage2dx");
 }
 
 function testCopyTexSubImage2D(testCase)

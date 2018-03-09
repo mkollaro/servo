@@ -1783,8 +1783,12 @@ impl WebGLRenderingContextMethods for WebGLRenderingContext {
         //
         // GL_INVALID_OPERATION is generated if the color buffer cannot be
         // converted to the internal_format.
+        println!("x");
+        println!("{:?}", image_info.internal_format());
+        println!("{:?}", internal_format);
         if let Some(old_internal_format) = image_info.internal_format() {
-            if old_internal_format.components() > internal_format.components() {
+            if old_internal_format.components() < internal_format.components() {
+                println!("hola");
                 return self.webgl_error(InvalidOperation);
             }
         }

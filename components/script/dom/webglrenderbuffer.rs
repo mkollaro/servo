@@ -95,7 +95,8 @@ impl WebGLRenderbuffer {
         // validation.
         match internal_format {
             constants::RGBA4 |
-            constants::DEPTH_STENCIL |
+            constants::RGB5_A1 |
+            constants::RGB565 |
             constants::DEPTH_COMPONENT16 |
             constants::STENCIL_INDEX8 =>
                 self.internal_format.set(Some(internal_format)),
